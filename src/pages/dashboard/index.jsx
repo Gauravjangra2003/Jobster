@@ -4,4 +4,4 @@ import Profile from './Profile'
 import AllJobs from './AllJobs'
 import SharedLayout from './SharedLayout'
 
-export{ AddJob, Stats, Profile, AllJobs , SharedLayout }
+export{ AddJob, Stats, Profile, AllJobs , SharedLayout}
