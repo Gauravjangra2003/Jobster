@@ -1,10 +1,10 @@
 import { FormRow, Logo } from "../components"
 import Wrapper from "../assets/wrappers/RegisterPage"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { loginUser , regiserUser } from "../features/user/UserSlice"
+import { loginUser , registerUser } from "../features/user/UserSlice"
 
 const initialState = {
   name: "",
@@ -28,7 +28,7 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    const { name, email, password, isMember } = values
+    const { name, email, password, isMember } = values;
     if (!email || !password || (!isMember && !name)) {
      toast.error("Please fill out all fields")
       return
@@ -37,12 +37,20 @@ const Register = () => {
       dispatch(loginUser({ email: email, password: password }))
       return
     }
-    dispatch(regiserUser({ name, email, password })) 
+    dispatch(registerUser({ name, email, password })) 
   }
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember })
   }
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/")
+      }, 2000)
+    }
+  },[user])
 
   return (
     <Wrapper className="full-page">
@@ -58,11 +66,13 @@ const Register = () => {
         {/* password field */}
         <FormRow type='password' name='password' value={values.password} handleChange={handleChange} />
         <button type="submit" className="btn btn-block" disabled={isLoading}>
-          submit
+          {isLoading ? 'Loading...' : 'Submit'}
         </button>
         <p>
           {values.isMember ? "Not a member yet?" : "Already a member?"}
-          <button type="button" className="member-btn" onClick={toggleMember}>{values.isMember ? 'Register' : 'Login'}</button>
+          <button type="button" className="member-btn" onClick={toggleMember}>
+            {values.isMember ? 'Register' : 'Login'}
+          </button>
         </p>
       </form>
     </Wrapper>
