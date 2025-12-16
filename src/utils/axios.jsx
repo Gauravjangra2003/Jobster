@@ -1,7 +1,24 @@
 import axios from "axios";
+import { getUserFromLocalStorage } from "./localstorage";
 
 const customFetch = axios.create({
-  baseURL: 'https://redux-toolkit-jobster-api-server.onrender.com/api/v1',
+  baseURL: "https://redux-toolkit-jobster-api-server.onrender.com/api/v1",
 });
+
+// Request Interceptor
+customFetch.interceptors.request.use(
+  (config) => {
+    const user = getUserFromLocalStorage();
+
+    if (user?.token) {
+      config.headers.Authorization = `Bearer ${user.token}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export default customFetch;
