@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import JobInfo from "./JobInfo";
 import { FaBriefcase, FaCalendarAlt, FaLocationArrow } from "react-icons/fa";
 import moment from "moment";
-import { deleteJob } from "../features/job/jobSlice";
+import { deleteJob , setEditJob} from "../features/job/jobSlice";
 
 const Job = ({_id , position , company , jobLocation , jobType , createdAt , status}) => {
 
@@ -32,7 +32,14 @@ const Job = ({_id , position , company , jobLocation , jobType , createdAt , sta
             </div>
             <footer>
                 <div className="actions">
-                    <Link to='/add-job' className="btn edit-btn" onClick={() => console.log('edit job')} >Edit </Link>
+                    <Link to='/add-job' className="btn edit-btn" onClick={() => dispatch(setEditJob({
+                        editJobId: _id,
+                        position,
+                        company,
+                        jobLocation,
+                        jobType,
+                        status,
+                    }))} >Edit </Link>
                     <button type="button" className="btn delete-btn" onClick={() => 
                         dispatch(deleteJob(_id))}>Delete</button>
                 </div>
