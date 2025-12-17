@@ -14,6 +14,7 @@ import ChartsContainer from './ChartsContainer'
 import StatsContainer from './StatsContainer'
 import StatsItem from './StatsItem'
 import AreaCharts from './AreaCharts'
+import PageBtnContainer from './PageBtnContainer'
 
 
-export { Logo , FormRow , Navbar, SmallSidebar, BigSidebar , NavLinks , FormRowSelect , SearchContainer , JobsContainer , Job , Loading , JobInfo , ChartsContainer , StatsContainer , StatsItem , AreaCharts}
+export { Logo , FormRow , Navbar, SmallSidebar, BigSidebar , NavLinks , FormRowSelect , SearchContainer , JobsContainer , Job , Loading , JobInfo , ChartsContainer , StatsContainer , StatsItem , AreaCharts , PageBtnContainer}
