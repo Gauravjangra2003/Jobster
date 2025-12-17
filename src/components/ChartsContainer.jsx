@@ -1,8 +1,17 @@
+import AreaCharts from "./AreaCharts"
+import Wrapper from "../assets/wrappers/ChartsContainer"
+import { useSelector } from "react-redux"
 
 
 const ChartsContainer = () => {
+
+  const {monthlyApplications : data} = useSelector((store) => store.allJobs)
+
   return (
-    <div>ChartsContainer</div>
+    <Wrapper>
+      <h4>Monthly Applications</h4>
+      <AreaCharts data={data} />
+    </Wrapper>
   )
 }
 
