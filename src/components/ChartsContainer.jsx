@@ -10,6 +10,7 @@ const ChartsContainer = () => {
   return (
     <Wrapper>
       <h4>Monthly Applications</h4>
+      <h3>Result Chart</h3>
       <AreaCharts data={data} />
     </Wrapper>
   )
