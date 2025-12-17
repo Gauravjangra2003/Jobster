@@ -8,6 +8,8 @@ const initialFiltersState = {
   searchType: 'all',
   sort: 'latest',
   sortOptions: ['latest', 'oldest', 'a-z', 'z-a'],
+  statusOptions: ['interview', 'declined', 'pending'],
+  jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
 };
 
 const initialState = {
@@ -53,6 +55,13 @@ export const allJobsSlice = createSlice({
         hideLoading: (state) => {
             state.isLoading = false;
         },
+        handleChange: (state,{payload: {name,value}}) => {
+            // state.page = 1 later
+            state[name] = value
+        },
+        clearFilters: (state) => {
+            return {...state, ...initialFiltersState}
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -82,6 +91,6 @@ export const allJobsSlice = createSlice({
     },
 })
 
-export const { showLoading, hideLoading } = allJobsSlice.actions;
+export const { showLoading, hideLoading , handleChange , clearFilters } = allJobsSlice.actions;
 
 export default allJobsSlice.reducer;
