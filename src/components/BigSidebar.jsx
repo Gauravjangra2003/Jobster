@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/BigSidebar" 
-import NavLinks from './NavLinks';
+import NavLinks from './Navlinks';
 import Logo from '../components/Logo';
 import { useSelector } from 'react-redux';
 
