@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage } from "../../utils/localstorage";
+import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage } from "../../utils/localStorage";
 import { loginUserThunk, registerUserThunk, updateUserThunk , clearStoreThunk } from "./userThunk";
 
 
@@ -28,7 +28,7 @@ export const updateUser = createAsyncThunk('user/updateUser',
 
 export const clearStore = createAsyncThunk('user/clearStore' , clearStoreThunk)
 
-const UserSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -97,6 +97,6 @@ const UserSlice = createSlice({
   },
 })
 
-export const { toggleSidebar , logoutUser } = UserSlice.actions;
+export const { toggleSidebar , logoutUser } = userSlice.actions;
 
-export default UserSlice.reducer;
+export default userSlice.reducer;

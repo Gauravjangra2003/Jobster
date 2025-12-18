@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { loginUser , registerUser } from "../features/user/UserSlice"
+import { loginUser , registerUser } from "../features/user/userSlice"
 
 const initialState = {
   name: "",
