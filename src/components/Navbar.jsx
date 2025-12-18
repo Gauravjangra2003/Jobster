@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Wrapper from "../assets/wrappers/Navbar";
 import { FaAlignLeft, FaCaretDown, FaUserCircle } from "react-icons/fa";
 import Logo from "./Logo";
-import { toggleSidebar , clearStore } from "../features/user/UserSlice";
+import { toggleSidebar , clearStore } from "../features/user/userSlice";
 import { useState } from "react";
 
 const Navbar = () => {
