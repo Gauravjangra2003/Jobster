@@ -14,7 +14,7 @@ const Landing = () => {
             <div className="info">
                 <h1>job <span>tracking</span> app</h1>
                 <p>
-                    Swag vinyl cliche polaroid, hot chicken viral semiotics portland tumblr vexillologist crucifix salvia hexagon. Hoodie trust fund normcore lyft.
+                    Track every application, interview, and offer in one place. Jobster helps you stay organized through your job search so you never miss a follow-up.
                 </p>
                 <Link to="/register" className='btn btn-hero'>Login/Register</Link>
             </div>
